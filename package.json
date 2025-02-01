@@ -1,16 +1,14 @@
 {
   "name": "next-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "backend services for anon",
   "main": "index.js",
   "scripts": {
     "dev": "tsc -b && node ./dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "npm install && node ./dist/index.js "
-
+    "build": "npm install && node ./dist/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "anon",
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
@@ -24,6 +22,8 @@
     "dedent": "^1.5.3",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "express-validator": "^7.2.1"
+    "express-validator": "^7.2.1",
+    "ollama": "^0.5.12",
+    "openai": "^4.82.0"
   }
 }

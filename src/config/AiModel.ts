@@ -1,6 +1,6 @@
 import{ GoogleGenerativeAI } from '@google/generative-ai';
 
-const apiKey = process.env.PUBLIC_GEMINI_KEY;
+const apiKey = process.env.GEMINI_KEY;
 
 if(!apiKey){
                throw new Error("the api key not present")

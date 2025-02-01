@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sanitizeAndParseJSON = exports.GenAiCode = exports.chatSession = void 0;
 const generative_ai_1 = require("@google/generative-ai");
-const apiKey = process.env.PUBLIC_GEMINI_KEY;
+const apiKey = process.env.GEMINI_KEY;
 if (!apiKey) {
     throw new Error("the api key not present");
 }
