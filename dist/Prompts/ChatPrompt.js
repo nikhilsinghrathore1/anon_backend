@@ -1,17 +1,19 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const dedent_1 = __importDefault(require("dedent"));
+'use strict';
+var __importDefault =
+    (this && this.__importDefault) ||
+    function (mod) {
+        return mod && mod.__esModule ? mod : { default: mod };
+    };
+Object.defineProperty(exports, '__esModule', { value: true });
+const dedent_1 = __importDefault(require('dedent'));
 exports.default = {
-    CHAT_PROMPT: (0, dedent_1.default) `
+    CHAT_PROMPT: (0, dedent_1.default)`
                You are an AI assistant and experience in React development.
                GUIDELINES:
                 - Tell user what you are building 
                 - response less than 15 lines. 
                 - skip code example and commentry`,
-    CODE_GEN_PROMPT: (0, dedent_1.default) `
+    CODE_GEN_PROMPT: (0, dedent_1.default)`
 Generate a Project in React. Create multiple components, organizing them in separate folders with filenames using the .js extension, if needed. The output should use Tailwind CSS for styling, 
 without any third-party dependencies or libraries, except for icons from the lucide-react library, which should only be used when necessary. Available icons include: Heart, Shield, Clock, Users, Play, Home, Search, Menu, User, Settings, Mail, Bell, Calendar, Star, Upload, Download, Trash, Edit, Plus, Minus, Check, X, and ArrowRight. For example, you can import an icon as import { Heart } from "lucide-react" and use it in JSX as <Heart className="" />.
 also you can use date-fns for date format and react-chartjs-2 chart, graph library

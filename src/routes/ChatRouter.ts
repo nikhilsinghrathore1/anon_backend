@@ -1,11 +1,11 @@
-import express from "express"
-import { body } from "express-validator"
-import { generateChatResponse } from "../contoller/chatController"
+import express from 'express';
+import { body } from 'express-validator';
+import { generateChatResponse } from '../contoller/chatController';
 
+export const router = express.Router();
 
-
-export const router = express.Router()
-
-router.post("/getChat",[
-               body("prompt").isString().withMessage("not a string")
-],generateChatResponse)
+router.post(
+    '/getChat',
+    [body('prompt').isString().withMessage('not a string')],
+    generateChatResponse
+);

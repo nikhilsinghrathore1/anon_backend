@@ -1,18 +1,14 @@
-import { chatSession } from "../config/AiModel"
-import ChatPrompt from "../Prompts/ChatPrompt"
+import { chatSession } from '../config/AiModel';
 
 interface val {
-               role:string,
-               content:string
+    role: string;
+    content: string;
 }
 
-export const getAiChatResp = async(prompt:val)=>{
-               if(prompt){
-                              const PROMPT = JSON.stringify(prompt)
-                              console.log(PROMPT)
-                              const response = await chatSession.sendMessage(PROMPT)        
-                              const resp = response.response.text()
-                              return resp
-               }
-       
-}
+export const getAiChatResp = async (prompt: val) => {
+    if (prompt) {
+        return await chatSession
+            .sendMessage(prompt.content)
+            .then((response) => response.response.text());
+    }
+};

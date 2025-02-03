@@ -35,20 +35,19 @@ var __awaiter =
         });
     };
 Object.defineProperty(exports, '__esModule', { value: true });
-exports.getAiCode = void 0;
-const AiModel_1 = require('../config/AiModel');
-const getAiCode = (prompt) =>
+const ollama_1 = require('ollama');
+const ChatRouter_1 = require('./ChatRouter');
+const ollama = new ollama_1.Ollama({ host: 'http://127.0.0.1:11434' });
+ChatRouter_1.router.get('/ollama', (req, res) =>
     __awaiter(void 0, void 0, void 0, function* () {
-        if (!prompt) {
-            throw new Error('all fields are required');
-        }
-        try {
-            const result = yield AiModel_1.GenAiCode.sendMessage(prompt);
-            const res = result.response.text();
-            console.log(res);
-            return JSON.parse(res);
-        } catch (err) {
-            throw err;
-        }
-    });
-exports.getAiCode = getAiCode;
+        const response = yield ollama.chat({
+            model: 'qwen2.5-coder:latest',
+            messages: [
+                { role: 'system', content: 'sky is blue always' },
+                { role: 'user', content: 'what is the color of sky?' },
+            ],
+        });
+        console.log(response.message.content);
+        res.send(response.message.content);
+    })
+);
