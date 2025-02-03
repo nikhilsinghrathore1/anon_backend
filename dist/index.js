@@ -12,12 +12,7 @@ const ChatRouter_1 = require("./routes/ChatRouter");
 const CodeGenRouter_1 = require("./routes/CodeGenRouter");
 const app = (0, express_1.default)();
 const port = process.env.PORT || 5000;
-const corsOptions = {
-    origin: 'https://anon-v2.vercel.app', // Specify your frontend URL here
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'], // Adjust if necessary
-};
-app.use((0, cors_1.default)(corsOptions));
+app.use((0, cors_1.default)({ origin: "*" }));
 app.use((0, cookie_parser_1.default)());
 app.use(express_1.default.json());
 app.use('/chat', ChatRouter_1.router);
