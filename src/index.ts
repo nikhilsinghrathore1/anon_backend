@@ -11,7 +11,12 @@ const app: Application = express();
 
 const port = process.env.PORT || 5000;
 
-app.use(cors({ origin: '*' }));
+const corsOptions = {
+    origin: 'https://anon-v2.vercel.app', // Specify your frontend URL here
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'], // Adjust if necessary
+};
+app.use(cors(corsOptions));
 app.use(cookieparser());
 app.use(express.json());
 app.use('/chat', ChatRouter);

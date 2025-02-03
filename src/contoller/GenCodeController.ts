@@ -12,13 +12,15 @@ export const GetGenCode = async (req: Request, res: Response) => {
     }
     try {
         console.log('inside GenCodeController');
-        const { prompt } = (await req.body) as {
-            prompt: {
-                role: string;
-                content: string;
-            };
-        };
+        const { prompt } = req.body;
         console.log('\n prompt recieved', prompt);
+
+        if (!prompt || typeof prompt !== 'object' || !prompt.content) {
+            res.status(400).json({
+                msg: 'Prompt is missing or invalid.',
+            });
+        }
+
         prompt.content = prompt.content.split('And Remember')[0].trim();
 
         console.log(prompt);
@@ -27,8 +29,8 @@ export const GetGenCode = async (req: Request, res: Response) => {
         res.status(200).json({
             response,
         });
-        return;
     } catch (err) {
+        console.log(err);
         res.status(400).json({
             msg: 'try block failed in GenCodeController',
             err,

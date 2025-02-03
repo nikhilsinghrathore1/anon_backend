@@ -14,9 +14,7 @@ export const generateChatResponse = async (req: Request, res: Response) => {
 
     // fuck bhai chal gya ye toh fuck
     try {
-        const { prompt } = (await req.body) as {
-            prompt: string;
-        };
+        const { prompt } = req.body;
         const parsedPrompt = await JSON.parse(prompt);
         const extractedLatestUserPrompt =
             await parsedPrompt[parsedPrompt.length - 1];
@@ -27,10 +25,10 @@ export const generateChatResponse = async (req: Request, res: Response) => {
 
         res.status(200).json({ response });
     } catch (err) {
+        console.error(err); // Log error for debugging
         res.status(400).json({
             msg: 'caught error in the gen_chat_route',
             err,
         });
-        return;
     }
 };

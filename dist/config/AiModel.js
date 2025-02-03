@@ -1,8 +1,8 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.GenAiCode = exports.chatSession = void 0;
-const generative_ai_1 = require('@google/generative-ai');
-const PromptAO_1 = require('../Prompts/PromptAO');
+const generative_ai_1 = require("@google/generative-ai");
+const PromptAO_1 = require("../Prompts/PromptAO");
 const apiKey = process.env.GEMINI_KEY;
 if (!apiKey) {
     throw new Error('the api key not present');
@@ -31,16 +31,16 @@ exports.chatSession = model.startChat({
 });
 exports.GenAiCode = model.startChat({
     generationConfig: CodeGenerationConfig,
-    systemInstruction: PromptAO_1.systemPrompt,
+    systemInstruction: PromptAO_1.systemContent,
     history: [
-        // {
-        //     role: 'user',
-        //     parts: [
-        //         {
-        //             text: '',
-        //         },
-        //     ],
-        // },
+    // {
+    //     role: 'user',
+    //     parts: [
+    //         {
+    //             text: '',
+    //         },
+    //     ],
+    // },
     ],
 });
 //  const result = await chatSession.sendMessage("INSERT_INPUT_HERE");
