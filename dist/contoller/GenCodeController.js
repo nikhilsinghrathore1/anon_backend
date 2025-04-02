@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetGenCode = void 0;
 const express_validator_1 = require("express-validator");
 const CodeGenService_1 = require("../services/CodeGenService");
+const data_1 = require("../data");
 const GetGenCode = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const error = (0, express_validator_1.validationResult)(req);
     if (!error.isEmpty()) {
@@ -22,8 +23,8 @@ const GetGenCode = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
     try {
         const { prompt } = req.body;
-        console.log(prompt);
-        const resp = yield (0, CodeGenService_1.getAiCode)(prompt);
+        const resp = yield (0, CodeGenService_1.getAiCode)(prompt + data_1.AoPrompt);
+        console.log(resp);
         res.status(200).json({
             resp
         });

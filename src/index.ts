@@ -15,6 +15,9 @@ const port = process.env.PORT || 5000
 app.use(cors({origin:"*"}))
 app.use(cookieparser());
 app.use(express.json())
+app.get("/",(req,res)=>{
+               res.send("server working")
+})
 app.use('/chat',ChatRouter)
 app.use('/code',CodeGenRouter)
 

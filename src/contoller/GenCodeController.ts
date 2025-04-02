@@ -1,6 +1,7 @@
 import { Request,Response } from "express"
 import { validationResult } from "express-validator"
 import { getAiCode } from "../services/CodeGenService"
+import { AoPrompt } from "../data"
 
 export const GetGenCode = async(req:Request,res:Response) =>{
                               const error = validationResult(req) 
@@ -12,12 +13,13 @@ export const GetGenCode = async(req:Request,res:Response) =>{
                               }
                               try{
                                              const{prompt} = req.body
-                                             console.log(prompt)
-                                             const resp = await getAiCode(prompt)
+                                             
+                                             
+                                             const resp = await getAiCode(prompt+AoPrompt)
+                                             console.log(resp)
                                              res.status(200).json({
                                                             resp
                                              })
-
 
                               }catch(err){
                                              res.status(400).json({

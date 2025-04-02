@@ -11,12 +11,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAiCode = void 0;
 const AiModel_1 = require("../config/AiModel");
+const data_1 = require("../data");
 const getAiCode = (prompt) => __awaiter(void 0, void 0, void 0, function* () {
     if (!prompt) {
         throw new Error("all fields are required");
     }
     try {
-        const result = yield AiModel_1.GenAiCode.sendMessage(prompt);
+        const result = yield AiModel_1.GenAiCode.sendMessage(prompt + data_1.AoPrompt);
         const res = result.response.text();
         return JSON.parse(res);
     }
