@@ -18,8 +18,9 @@ const getAiCode = (prompt) => __awaiter(void 0, void 0, void 0, function* () {
     }
     try {
         const result = yield AiModel_1.GenAiCode.sendMessage(prompt + data_1.AoPrompt);
-        const res = result.response.text();
-        return JSON.parse(res);
+        console.log(result.response.text());
+        const res = (0, AiModel_1.sanitizeAndParseJSON)(result.response.text());
+        return res;
     }
     catch (err) {
         throw err;

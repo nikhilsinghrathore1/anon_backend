@@ -6,7 +6,10 @@ export default {
                GUIDELINES:
                 - Tell user what you are building 
                 - response less than 15 lines. 
-                - skip code example and commentry`,
+                - skip code example and commentry
+                - reply in not more than 45 words
+                `,
+                
 
 CODE_GEN_PROMPT:dedent`
 Generate a Project in React. Create multiple components, organizing them in separate folders with filenames using the .js extension, if needed. The output should use Tailwind CSS for styling, 
