@@ -10,7 +10,7 @@ if (!apiKey) {
 }
 const genAI = new generative_ai_1.GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({
-    model: "gemini-2.0-flash",
+    model: "gemini-2.0-flash-lite",
 });
 const generationConfigg = {
     temperature: 0.9,
@@ -20,9 +20,9 @@ const generationConfigg = {
     responseMimeType: "text/plain",
 };
 const CodeGenerationConfig = {
-    temperature: 0.7,
-    topP: 0.95,
-    topK: 40,
+    temperature: 0.5,
+    topP: 0.5,
+    topK: 32,
     maxOutputTokens: 20000,
     responseMimeType: "application/json",
 };

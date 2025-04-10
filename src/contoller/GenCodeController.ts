@@ -4,6 +4,8 @@ import { getAiCode } from "../services/CodeGenService"
 import { AoPrompt } from "../data"
 
 export const GetGenCode = async(req:Request,res:Response) =>{
+               console.log("get gen code called")
+
                               const error = validationResult(req) 
                               if(!error.isEmpty()){
                                              res.status(400).json({
@@ -13,7 +15,7 @@ export const GetGenCode = async(req:Request,res:Response) =>{
                               }
                               try{
                                              const{prompt} = req.body
-                                             
+                                             console.log(prompt)
                                              
                                              const resp = await getAiCode(prompt+AoPrompt)
                                              console.log(resp)
