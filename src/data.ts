@@ -193,7 +193,8 @@ files:{
     import {
       message,
       createDataItemSigner,
-      createSigner
+      createSigner,
+      dryrun
     } from "@permaweb/aoconnect"
     import axios from 'axios';
    
