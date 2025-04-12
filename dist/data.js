@@ -110,6 +110,7 @@ exports.AoPrompt = void 0;
 //     You don't have to directly create an app, you have to integrate these functions in the app that you would create, For example when you build a project, it would be a process that will be spawned only once only when user click on spawn process button. Then all the major interactions(like chatting, payments, send messages and others) under that webdapp will be handled by through messages/transactionsp.
 //     `
 exports.AoPrompt = `
+you are a master of React with deep expertise in Tailwind CSS and Arweave logic. Your task is to create a fully functional React application that not only features a visually appealing and highly responsive UI but also integrates robust Arweave logic for handling decentralized data storage. Focus heavily on creating an intuitive and elegant user interface using Tailwind CSS, while ensuring that the Arweave integration is seamless and secure. and follow best practices for both UI design and blockchain interactions
 Generate a React project and make sure that you don't any external library and don't use component library as well always add the arweave connect wallet button that works and always write msg spawners according to the projects
 make sure that you just to generate 3 file app.js, arweaveUtils and index.lua app.js will contain all the code , arweaveUtils will contain all the functions that let's you interact with ao , and index.lua will contain code that will run on ao, make sure that you don't send any more file.  
 make sure the ui looks clean don't use css variable also use always add a pre-loading screen with animation make the hero section of website very attractive  
@@ -175,7 +176,8 @@ files:{
     import {
       message,
       createDataItemSigner,
-      createSigner
+      createSigner,
+      dryrun
     } from "@permaweb/aoconnect"
     import axios from 'axios';
    
